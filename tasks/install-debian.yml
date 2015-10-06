@@ -1,0 +1,7 @@
+- name: Install package
+  apt:
+    deb={{vagrant_tmp_file}}
+    #force=no
+  changed_when: false
+  tags:
+    - vagrant

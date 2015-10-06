@@ -1,0 +1,4 @@
+vagrant_tmp: "/tmp/"
+vagrant_file: "vagrant"
+vagrant_version: 1.7.4
+vagrant_arch_ext: "x86_64"

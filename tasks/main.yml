@@ -1,0 +1,30 @@
+# Setup for Vagrant
+
+- set_fact:
+  vagrant_arch_ext="i686"
+  when: ansible_architecture == "i386"
+  tags:
+    - vagrant
+
+- set_fact:
+  vagrant_arch_ext="x86_64"
+  when: ansible_architecture == "x86_64"
+  tags:
+    - vagrant
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+  tags:
+    - vagrant
+
+- name: Download Vagrant
+  get_url: url="{{ vagrant_url }}" dest="{{vagrant_tmp_file}}" force=no validate_certs=no
+  tags:
+    - vagrant
+
+- include: install-debian.yml
+  when: "ansible_os_family == 'Debian'"
+  tags:
+    - apache
+
+

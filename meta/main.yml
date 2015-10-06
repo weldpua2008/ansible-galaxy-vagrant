@@ -1,0 +1,31 @@
+---
+galaxy_info:
+  author: "Valeriy Solovyov"
+  description: "Ansible role for installing Vagrant"
+  license: "license (MIT)"
+  min_ansible_version: 1.6
+  platforms:
+  - name: FreeBSD
+    versions:
+      - all
+  - name: Ubuntu
+    versions:
+      - all
+  - name: Debian
+    versions:
+      - all
+  - name: EL
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+  - name: opensuse
+    versions:
+    - all
+  categories:
+  - development
+  - system
+  - packaging
+
+dependencies: []
