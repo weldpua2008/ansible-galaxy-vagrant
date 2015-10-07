@@ -2,3 +2,5 @@ vagrant_file: "vagrant_{{vagrant_version}}_{{vagrant_arch_ext}}.deb"
 vagrant_url: "https://dl.bintray.com/mitchellh/vagrant/{{vagrant_file}}"
 
 vagrant_tmp_file: "{{vagrant_tmp}}/{{vagrant_file}}"
+virutalbox_packages:
+  - virtualbox-5.0

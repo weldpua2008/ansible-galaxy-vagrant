@@ -5,3 +5,31 @@
   changed_when: false
   tags:
     - vagrant
+
+- name:Add an apt key by id from a keyserver
+  apt_key:
+    url="{{virtualbox_key_url}}"
+    state=present
+    id=98AB5139
+  register: aptkey
+  tags:
+    - vagrant
+
+- name: Adding virtualbox repository into sources list.
+  apt_repository:
+    repo="deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib"
+#    repo='deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib'
+    state=present
+    update_cache=yes
+  when: aptkey.changed and enable_virtualbox
+  tags:
+    - vagrant
+
+- name: Install VirtualBox
+  apt:
+    deb={{item}}
+    state=present
+  with_items: virutalbox_packages
+  #changed_when: false
+  tags:
+    - vagrant

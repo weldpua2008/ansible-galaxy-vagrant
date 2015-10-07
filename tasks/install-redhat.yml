@@ -1,0 +1,7 @@
+- name: Install package
+  yum:
+    name={{vagrant_tmp_file}}
+    state=present
+  changed_when: false
+  tags:
+    - vagrant
