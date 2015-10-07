@@ -10,7 +10,7 @@ env:
   - OS_TYPE=ubuntu OS_VERSION=14.04 ANSIBLE_VERSION=1.9.2
   - OS_TYPE=fedora OS_VERSION=22 ANSIBLE_VERSION=1.9.2
   - OS_TYPE=opensuse OS_VERSION=13.2 ANSIBLE_VERSION=1.9.2
-  
+
 branches:
   only:
   - master
