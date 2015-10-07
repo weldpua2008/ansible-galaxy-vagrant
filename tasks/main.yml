@@ -41,7 +41,7 @@
     - vagrant
 
 - include: install-suse.yml
-  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse'
+  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse' or ansible_distribution == 'openSUSE'
   tags:
     - vagrant
 

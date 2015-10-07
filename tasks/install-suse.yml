@@ -1,5 +1,5 @@
 - name: Install package
-  yum:
+  zypper:
     name={{vagrant_tmp_file}}
     state=present
   changed_when: false
@@ -14,7 +14,7 @@
 
 - name: Adding virtualbox repository into sources list for Suse
   template: src=Suse.repo.j2 dest= /etc/zypp/repos.d/virtualbox.repo
-  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse'
+  changed_when: false
   tags:
     - vagrant
 
