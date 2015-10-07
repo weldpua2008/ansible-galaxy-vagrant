@@ -1,7 +1,7 @@
 - name: Install package
   apt:
     deb={{vagrant_tmp_file}}
-    state=present
+    state=installed
   changed_when: false
   tags:
     - vagrant
@@ -28,8 +28,8 @@
 
 - name: Install VirtualBox
   apt:
-    deb={{item}}
-    #state=present
+    name={{item}}
+    state=present
   with_items: virutalbox_packages
   #changed_when: false
   tags:

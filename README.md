@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/weldpua2008/ansible-galaxy-vagrant.svg?branch=master)](https://travis-ci.org/weldpua2008/ansible-galaxy-vagrant)
 [![Ansible Role](https://img.shields.io/ansible/role/5398.svg?style=plastic)](https://galaxy.ansible.com/list#/roles/5398)
+[![Project Stats](https://www.openhub.net/p/ansible-galaxy-vagrant/widgets/project_thin_badge.gif)](https://www.openhub.net/p/ansible-galaxy-vagrant/)
+
 
 # Ansible role for Vagrant
 
