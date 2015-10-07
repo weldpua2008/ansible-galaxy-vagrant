@@ -28,3 +28,20 @@
     - vagrant
 
 
+
+- include: install-redhat.yml
+#  when: "ansible_os_family == 'Debian'"
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
+  tags:
+    - vagrant
+
+- include: install-fedora.yml
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
+  tags:
+    - vagrant
+
+- include: install-suse.yml
+  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse'
+  tags:
+    - vagrant
+

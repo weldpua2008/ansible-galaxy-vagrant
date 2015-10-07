@@ -5,3 +5,13 @@
   changed_when: false
   tags:
     - vagrant
+
+# Oracle Linux / RHEL / CentOS
+- name: Adding virtualbox repository into sources list for Oracle Linux / RHEL / CentOS
+  template: src=RHEL.repo.j2 dest=/etc/yum.repos.d/virtualbox.repo
+  tags:
+    - vagrant
+
+
+
+
