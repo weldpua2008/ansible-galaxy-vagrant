@@ -6,13 +6,14 @@
   tags:
     - vagrant
 
-- name: Create a repositories folder
-  file:
-    path=/etc/zypp/repos.d/
-    mode=0644
-    state=directory
-  tags:
-    - vagrant
+#- name: Create a repositories folder
+#  file:
+#    path=/etc/zypp/repos.d/
+#    mode=0644
+#    state=directory
+#  tags:
+#    - vagrant
+
 #- name: Adding virtualbox repository into sources list for Suse 11.4/12.1/12.2.
 #  template: src=Suse-11.4-12.1-12.2.repo.j2 dest=/etc/yum.repos.d/virtualbox.repo
 #  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse'
@@ -22,7 +23,7 @@
 
 
 - name: Adding virtualbox repository into sources list for Suse
-  template: src=Suse.repo.j2 dest= /etc/zypp/repos.d/virtualbox.repo
+  template: src=Suse.repo.j2 dest=/etc/zypp/repos.d/virtualbox.repo
   changed_when: false
   tags:
     - vagrant
