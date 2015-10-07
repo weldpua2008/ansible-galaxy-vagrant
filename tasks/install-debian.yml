@@ -11,6 +11,7 @@
     url={{virtualbox_key_url}}
     state=present
     id=98AB5139
+    validate_certs=no
   register: aptkey
   tags:
     - vagrant
