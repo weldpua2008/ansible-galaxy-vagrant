@@ -17,7 +17,6 @@
 
 - name: Adding virtualbox repository into sources list for Fedora
   template: src=Fedora.repo.j2 dest=/etc/yum.repos.d/virtualbox.repo
-  when: ansible_distribution == "Fedora"
   tags:
     - vagrant
 
