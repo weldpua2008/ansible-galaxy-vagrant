@@ -1,13 +1,13 @@
 # Setup for Vagrant
 
 - set_fact:
-  vagrant_arch_ext="i686"
+    vagrant_arch_ext="i686"
   when: ansible_architecture == "i386"
   tags:
     - vagrant
 
 - set_fact:
-  vagrant_arch_ext="x86_64"
+    vagrant_arch_ext="x86_64"
   when: ansible_architecture == "x86_64"
   tags:
     - vagrant
@@ -27,21 +27,21 @@
   tags:
     - vagrant
 
-
-
-- include: install-redhat.yml
-#  when: "ansible_os_family == 'Debian'"
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
-  tags:
-    - vagrant
-
-- include: install-fedora.yml
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
-  tags:
-    - vagrant
-
-- include: install-suse.yml
-  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse'
-  tags:
-    - vagrant
-
+#
+#
+#- include: install-redhat.yml
+##  when: "ansible_os_family == 'Debian'"
+#  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
+#  tags:
+#    - vagrant
+#
+#- include: install-fedora.yml
+#  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux' or ansible_distribution == 'RedHat'
+#  tags:
+#    - vagrant
+#
+#- include: install-suse.yml
+#  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse'
+#  tags:
+#    - vagrant
+#

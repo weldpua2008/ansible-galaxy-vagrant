@@ -1,24 +1,24 @@
 - name: Install package
   apt:
     deb={{vagrant_tmp_file}}
-    #force=no
+    state=present
   changed_when: false
   tags:
     - vagrant
 
-- name:Add an apt key by id from a keyserver
+- name: Add an apt key by id from a keyserver
   apt_key:
-    url="{{virtualbox_key_url}}"
+    url={{virtualbox_key_url}}
     state=present
     id=98AB5139
   register: aptkey
   tags:
     - vagrant
 
+#    repo='deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib'
 - name: Adding virtualbox repository into sources list.
   apt_repository:
-    repo="deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib"
-#    repo='deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib'
+    repo='deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib'
     state=present
     update_cache=yes
   when: aptkey.changed and enable_virtualbox
