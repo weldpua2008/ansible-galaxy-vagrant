@@ -10,7 +10,7 @@
   file:
     path=/etc/zypp/repos.d/
     mode=0644
-    state=present
+    state=directory
   tags:
     - vagrant
 #- name: Adding virtualbox repository into sources list for Suse 11.4/12.1/12.2.
