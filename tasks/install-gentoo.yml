@@ -1,0 +1,25 @@
+# requires Ansible 1.6
+# requires gentoolkit on host
+
+- name: Install Vagrant package
+  portage:
+    package=app-emulation/vagrant
+    state=present
+  changed_when: false
+  tags:
+    - vagrant
+
+- name: Install VirtualBox package
+  portage:
+    package={{ item }}
+    state=present
+  changed_when: false
+  with_items:
+    - "app-emulation/virtualbox"
+    - "app-emulation/virtualbox-additions"
+    - "app-emulation/virtualbox-guest-additions"
+  when: enable_virtualbox|bool
+  tags:
+    - vagrant
+
+

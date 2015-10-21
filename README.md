@@ -9,6 +9,7 @@ This role will configure your server with vagrant. Also you can install extra pr
 * VirtualBox
 
 # Usage example
+    ansible-galaxy install weldpua2008.vagrant
 
 Add this to your playbook:
 
@@ -16,21 +17,23 @@ Add this to your playbook:
       hosts: all
       gather_facts: true
       roles:
-        - vagrant
+        - weldpua2008.vagrant
         
       vars:
         vagrant_libvirt_enabled: true #In order to enable libvirt plugin          
 
-If running on FreeBSD:
+If running on FreeBSD use variable  `freebsd_install_from_ports`:
+* True - use ports
+* False - use pkg_add / pkgng - Package manager for FreeBSD >= 9.
 
     - name: Setup for vagrant boxes
       hosts: all
       gather_facts: true
-      vars:
-        sudoers_path: /usr/local/etc/sudoers.d/vagrant
-        vagrant_user_shell: /bin/sh
+      vars:        
+        freebsd_install_from_ports: True
       roles:
-        - vagrant
+        - weldpua2008.vagrant
+      
 
 # License
 
@@ -38,4 +41,4 @@ MIT License
 
 # Author
 
-Valeriy Solovyov
+Valeriy Solovyov 

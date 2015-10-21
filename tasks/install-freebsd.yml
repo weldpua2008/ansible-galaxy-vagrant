@@ -1,0 +1,33 @@
+- name: Install vagrant
+  portinstall:
+    name=sysutils/vagrant
+    state=present
+  #changed_when: false
+  when: freebsd_install_from_ports|bool
+  tags:
+    - vagrant
+
+- name: Install vagrant
+  pkgng:
+    name=vagrant
+    state=present
+  when: not freebsd_install_from_ports|bool
+  tags:
+    - vagrant
+
+
+- name: Install vagrant
+  portinstall:
+    name=emulators/virtualbox-ose
+    state=present
+  when: freebsd_install_from_ports|bool and enable_virtualbox|bool
+  tags:
+    - vagrant
+
+- name: Install vagrant
+  pkgng:
+    name=virtualbox-ose
+    state=present
+  when: not freebsd_install_from_ports|bool and enable_virtualbox|bool
+  tags:
+    - vagrant

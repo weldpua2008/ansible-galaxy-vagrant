@@ -19,15 +19,14 @@
 
 - name: Download Vagrant
   get_url: url="{{ vagrant_url }}" dest="{{vagrant_tmp_file}}" force=no validate_certs=no
+  when: download_vagrant|bool
   tags:
     - vagrant
 
 - include: install-debian.yml
-  when: "ansible_os_family == 'Debian'"
+  when: ansible_os_family == 'Debian'
   tags:
     - vagrant
-
-
 
 - include: install-redhat.yml
 #  when: "ansible_os_family == 'Debian'"
@@ -41,7 +40,17 @@
     - vagrant
 
 - include: install-suse.yml
-  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse' or ansible_distribution == 'openSUSE'
+  when: ansible_os_family == 'Suse' or ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse' or ansible_distribution == 'openSUSE'
+#  when: ansible_distribution == 'SLES' or ansible_distribution == 'OES' or ansible_distribution == 'Suse' or ansible_distribution == 'openSUSE'
   tags:
     - vagrant
 
+- include: install-freebsd.yml
+  when: ansible_os_family == 'FreeBSD'
+  tags:
+    - vagrant
+
+- include: install-gentoo.yml
+  when: ansible_os_family == 'Gentoo '
+  tags:
+    - vagrant

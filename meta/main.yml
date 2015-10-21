@@ -2,9 +2,12 @@
 galaxy_info:
   author: "Valeriy Solovyov"
   description: "Ansible role for installing Vagrant"
-  license: "license (MIT)"
+  license: "MIT"
   min_ansible_version: 1.6
   platforms:
+  - name: Amazon
+    versions:
+    - all
   - name: FreeBSD
     versions:
       - all
@@ -23,9 +26,13 @@ galaxy_info:
   - name: opensuse
     versions:
     - all
+  - name: GenericUNIX
+    versions:
+    - all
   categories:
   - development
   - system
   - packaging
+  - cloud
 
 dependencies: []
