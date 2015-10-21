@@ -20,9 +20,8 @@ services:
   - docker
 
 before_install:
-#  - sudo dpkg -l|grep ii
-#  - sudo dpkg -l|grep ii|grep docker
   - sudo apt-get update
+#  fixed   E: Package 'lxc-docker' has no installation candidate
 #  - sudo apt-get upgrade lxc-docker
   - echo 'DOCKER_OPTS="-H tcp://127.0.0.1:2375 -H unix:///var/run/docker.sock -s devicemapper"' | sudo tee /etc/default/docker > /dev/null
   - sudo service docker restart
