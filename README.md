@@ -24,7 +24,8 @@ Add this to your playbook:
 
 If running on FreeBSD use variable  `freebsd_install_from_ports`:
 * True - use ports
-* False - use pkg_add / pkgng - Package manager for FreeBSD >= 9.
+* False - use pkg_add / pkgng - Package manager for FreeBSD >= 9
+
 
     - name: Setup for vagrant boxes
       hosts: all
