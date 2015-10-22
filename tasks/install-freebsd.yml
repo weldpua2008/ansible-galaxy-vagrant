@@ -7,6 +7,12 @@
   tags:
     - vagrant
 
+- name: Convert package to ng
+  shell: pkg2ng
+  when: not freebsd_install_from_ports|bool
+  tags:
+    - vagrant
+
 - name: Install vagrant
   pkgng:
     name=vagrant
