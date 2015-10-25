@@ -1,15 +1,18 @@
 - name: Install vagrant
   portinstall:
-    name=sysutils/vagrant
+    name=vagrant
     state=present
   #changed_when: false
   when: freebsd_install_from_ports|bool
+#  sudo: yes
   tags:
     - vagrant
 
 - name: Convert package to ng
   shell: pkg2ng
   when: not freebsd_install_from_ports|bool
+  changed_when: false
+#  sudo: yes
   tags:
     - vagrant
 
@@ -18,15 +21,18 @@
     name=vagrant
     state=present
   when: not freebsd_install_from_ports|bool
+#  sudo: yes
   tags:
     - vagrant
 
 
+# emulators/virtualbox-ose
 - name: Install vagrant
   portinstall:
-    name=emulators/virtualbox-ose
+    name=virtualbox-ose
     state=present
   when: freebsd_install_from_ports|bool and enable_virtualbox|bool
+#  sudo: yes
   tags:
     - vagrant
 
@@ -35,5 +41,6 @@
     name=virtualbox-ose
     state=present
   when: not freebsd_install_from_ports|bool and enable_virtualbox|bool
+#  sudo: yes
   tags:
     - vagrant
