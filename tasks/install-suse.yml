@@ -28,5 +28,13 @@
   tags:
     - vagrant
 
+- name: Install VirtualBox
+  yum:
+    name={{item}}
+    state=present
+  with_items: virutalbox_packages
+  #changed_when: false
+  tags:
+    - vagrant
 
 
