@@ -17,12 +17,13 @@
     - vagrant
 
 #    repo='deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib'
-- name: Adding virtualbox repository into sources list.
+- name: Adding virtualbox repository into sources list
   apt_repository:
-    repo='deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib'
+    repo="deb http://download.virtualbox.org/virtualbox/debian {{ansible_distribution_release}} contrib"
     state=present
     update_cache=yes
-  when: aptkey.changed and enable_virtualbox
+  when: enable_virtualbox
+  changed_when: false
   tags:
     - vagrant
 
