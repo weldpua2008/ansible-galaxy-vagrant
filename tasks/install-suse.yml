@@ -28,12 +28,20 @@
   tags:
     - vagrant
 
+- name: Refresh repo
+  zypper_repository:
+    repo=/etc/zypp/repos.d/virtualbox.repo
+    refresh=yes
+  changed_when: false
+  tags:
+    - vagrant
+
 - name: Install VirtualBox
   zypper:
     name={{item}}
     state=present
   with_items: virutalbox_packages
-  #changed_when: false
+  changed_when: false
   tags:
     - vagrant
 
