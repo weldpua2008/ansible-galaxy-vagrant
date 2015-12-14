@@ -1,6 +1,21 @@
 [virtualbox]
-name=VirtualBox for openSUSE/SUSE
+name=VirtualBox for openSUSE
+{% if ansible_distribution_version is not defined  %}
 baseurl=http://download.virtualbox.org/virtualbox/rpm/opensuse/$releasever
+{% else %}
+{% if ansible_distribution_version == '11.4' or  ansible_distribution_version=='12.1' or  ansible_distribution_version=='12.2' %}
+baseurl=http://download.virtualbox.org/virtualbox/rpm/opensuse/11.4
+{% elif ansible_distribution_version=='12.3' %}
+baseurl=http://download.virtualbox.org/virtualbox/rpm/opensuse/12.3
+{% elif ansible_distribution_version=='13.1' %}
+baseurl=http://download.virtualbox.org/virtualbox/rpm/opensuse/13.1
+{% elif ansible_distribution_version=='13.2' %}
+baseurl=http://download.virtualbox.org/virtualbox/rpm/opensuse/13.2
+{% else %}
+baseurl=http://download.virtualbox.org/virtualbox/rpm/opensuse/$releasever
+{% endif %}
+{% endif %}
+
 type=yum
 enabled=1
 priority=120

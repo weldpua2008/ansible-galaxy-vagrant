@@ -28,11 +28,13 @@
   tags:
     - vagrant
 
+#- debug: msg="{{ansible_distribution_release}} ansible_distribution_version:{{ ansible_distribution_version}} System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
+
+
 - name: Refresh repo
-  zypper_repository:
-    repo=/etc/zypp/repos.d/virtualbox.repo
-    refresh=yes
+  shell: zypper  --non-interactive --no-gpg-checks refresh
   changed_when: false
+  ignore_errors: yes
   tags:
     - vagrant
 
