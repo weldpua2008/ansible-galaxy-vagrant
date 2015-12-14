@@ -1,4 +1,11 @@
-- name: Install package
+#Aborting, target uses selinux but python bindings (libselinux-python) aren't installed!
+- name: install selinux bindings
+  yum: name=libselinux-python state=present
+  changed_when: false
+  tags:
+    - vagrant
+
+- name: Install package for Oracle Linux / RHEL / CentOS
   yum:
     name={{vagrant_tmp_file}}
     state=present
@@ -6,11 +13,23 @@
   tags:
     - vagrant
 
+
+
+
 # Oracle Linux / RHEL / CentOS
 - name: Adding virtualbox repository into sources list for Oracle Linux / RHEL / CentOS
   template: src=RHEL.repo.j2 dest=/etc/yum.repos.d/virtualbox.repo
   tags:
     - vagrant
+
+- name: Refresh repository cache
+  shell: yum makecache -y
+  ignore_errors: yes
+  tags:
+    - vagrant
+
+
+
 
 - name: Install VirtualBox
   yum:
