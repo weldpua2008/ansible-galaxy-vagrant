@@ -32,7 +32,7 @@
 
 
 - name: Refresh repo
-  shell: zypper  --non-interactive --no-gpg-checks refresh
+  shell: zypper  --non-interactive --no-gpg-checks --gpg-auto-import-keys refresh
   changed_when: false
   ignore_errors: yes
   tags:

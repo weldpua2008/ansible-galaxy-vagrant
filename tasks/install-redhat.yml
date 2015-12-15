@@ -24,11 +24,10 @@
 
 - name: Refresh repository cache
   shell: yum makecache -y
+  changed_when: false
   ignore_errors: yes
   tags:
     - vagrant
-
-
 
 
 - name: Install VirtualBox
