@@ -48,6 +48,7 @@
   zypper:
     name={{item}}
     state=present
+    disable_gpg_check=yes
   with_items: virutalbox_packages
   changed_when: false
   tags:
