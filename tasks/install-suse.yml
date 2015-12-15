@@ -30,9 +30,15 @@
 
 #- debug: msg="{{ansible_distribution_release}} ansible_distribution_version:{{ ansible_distribution_version}} System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
 
-
 - name: Refresh repo
   shell: zypper  --non-interactive --no-gpg-checks --gpg-auto-import-keys refresh
+  changed_when: false
+  ignore_errors: yes
+  tags:
+    - vagrant
+
+- name: Refresh repo
+  shell: zypper  --non-interactive --gpg-auto-import-keys refresh
   changed_when: false
   ignore_errors: yes
   tags:
