@@ -1,6 +1,6 @@
 vagrant_tmp: "/tmp/"
 vagrant_file: "vagrant"
-vagrant_version: 1.7.4
+vagrant_version: 1.8.1
 vagrant_arch_ext: "x86_64"
 enable_virtualbox: true
 virtualbox_key_url: "https://www.virtualbox.org/download/oracle_vbox.asc"

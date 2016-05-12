@@ -1,5 +1,7 @@
 vagrant_file: "vagrant_{{vagrant_version}}_{{vagrant_arch_ext}}.deb"
-vagrant_url: "https://dl.bintray.com/mitchellh/vagrant/{{vagrant_file}}"
+#vagrant_url: "https://dl.bintray.com/mitchellh/vagrant/{{vagrant_file}}"
+# https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
+vagrant_url: "https://releases.hashicorp.com/vagrant/{{vagrant_version}}/{{vagrant_file}}"
 
 vagrant_tmp_file: "{{vagrant_tmp}}/{{vagrant_file}}"
 virutalbox_packages:
